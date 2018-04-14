@@ -1,6 +1,11 @@
+__author__ = "Claudio Marche"
+
 import Adafruit_DHT as dht
 
-# classe per il sensore di temperatura interna
+# classe per il sensore DHT22
+
+# h: humidity
+# t: temperature
 
 class Intern_sensor():
 

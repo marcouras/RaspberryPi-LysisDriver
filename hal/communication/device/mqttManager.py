@@ -1,21 +1,25 @@
+__author__ = "Marco Uras, Claudio Marche"
+
 import paho.mqtt.client as mqtt
 from deviceMngt.schedule_thread import ThreadRasp
 from deviceMngt.data_sensor import sendSensorData
 from deviceMngt.set_actuator import setActuator
+from util.file_manager import read_file
 
 
-def createClient(Clientname):
+def createClient(Clientname, url_broker):
     print "Hai collegato " + Clientname
     Clientname = mqtt.Client()
     Clientname.on_connect = on_connect
     Clientname.on_message = on_message
-    Clientname.connect('http://lysis-78.appspot.com/sendData')
+    Clientname.connect(url_broker)
     Clientname.loop_forever()  # Continua a ricevere all'infinito
 
 # Connessione device al Server
 def on_connect(Clientname, userdata, flags, rc):
     print 'connected with result code ' + str(rc) + "\n"
-    Clientname.subscribe('testMCLAB')  # Topic del progetto
+    topic = read_file("configuration/app_engine_id.dat")
+    Clientname.subscribe(topic)  # Topic del progetto
 
 # Ricezione messaggio dal server
 def on_message(client, userdata, msg):

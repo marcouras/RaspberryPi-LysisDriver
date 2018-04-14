@@ -1,9 +1,11 @@
+__author__ = "Marco Uras"
+
 # -*- coding: utf-8 -*-
 import simplejson as json
 import os
 import urllib
 
-from util.file_manager import write_file
+from util.file_manager import *
 import random, string
 import requests
 
@@ -17,11 +19,14 @@ def createKey(length=10):
     return key
 
 
-class Registration():
+class Registration(object):
     """
     Questa classe si occupa di fare la registrazione del Raspberry sul SVO
     viene generata, spedita ed infine memorizzata una chiave
     """
+
+    def __init__(self):
+        self.id_app_engine = read_file("configuration/app_engine_id.dat")
 
     def sendConfig(self):
         """
@@ -45,7 +50,7 @@ class Registration():
 
         param = {'brand': 'raspberryPi',
                  'model': '3',
-                 'url': 'lysis-78',
+                 'url': self.id_app_engine,
                  'regId': key,
                  'configuration': conf}
 
@@ -59,8 +64,8 @@ class Registration():
         }
 
         r = requests.request("POST",
-                             url="http://lysis-78.appspot.com/register?device",
+                             url="http://" + self.id_app_engine + ".appspot.com/register?device",
                              data=payload,
                              headers=headers_list)
-        print r.text
+        # print r.text
         print r.status_code

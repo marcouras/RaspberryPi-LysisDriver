@@ -1,5 +1,11 @@
+__author__ = "Claudio Marche"
+
 import os
 import time
+
+
+# classe per il comando tramite ir led, di un condizionatore Mitsubishi
+# composizione o decodifica del comando inviato o ricevuto dal remote controller
 
 class Lirc():
 
@@ -174,19 +180,13 @@ class Lirc():
         nb12 = int(nb12, 2)
 
         sum = nb0 + nb1 + nb2 + nb3 + nb4 + nb5 + nb6 + nb7 + nb8 + nb9 + nb10 + nb11 + nb12
-
         convert = bin(sum)
-
         new = convert[::-1]
-
         b13 = new[0:8]
-
         vect = list(b13)
-
         b13 = map(int, vect)
 
         complete = b0 + b1 + b2 + b3 + b4 + b5 + b6 + b7 + b8 + b9 + b10 + b11 + b12 + b13
-
         cod = ''.join(str(e) for e in complete)
 
         return cod

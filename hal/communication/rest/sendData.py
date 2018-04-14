@@ -1,7 +1,10 @@
+__author__ = "Marco Uras"
+
 import urllib
 
 import requests
 import time
+from util.file_manager import read_file
 
 
 def sendData(sensor_name, sensor_value):
@@ -17,6 +20,7 @@ def sendData(sensor_name, sensor_value):
     except IOError:
         print ("reg.dat file not found")
 
+
     payload = {'name': sensor_name,
                'type': 'number',
                'value': sensor_value,
@@ -25,7 +29,7 @@ def sendData(sensor_name, sensor_value):
                }
 
     param = urllib.urlencode(payload)
-    url = "http://lysis-78.appspot.com/sendData"
+    url = "http://" + read_file("configuration/app_engine_id.dat") + ".appspot.com/sendData"
 
     headers = {
         'content-type': "application/x-www-form-urlencoded",

@@ -1,39 +1,41 @@
 import RPi.GPIO as GPIO
 import time
 
+__author__ = "Claudio Marche"
 
+# GPIO
 GREEN = 5
 RED = 6
 
 
 class Led():
 
-    # metodo per l'accensione del led verde
+    # green led on
     def green_on(self):
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)     # disabilita' warning
+        GPIO.setwarnings(False)  # warning off
         GPIO.setup(GREEN, GPIO.OUT)
         GPIO.output(GREEN, GPIO.HIGH)
 
 
-    # metodo spegnimento led verde
+    # green led off
     def green_off(self):
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)  # disabilita' warning
+        GPIO.setwarnings(False)  # warning off
         GPIO.setup(GREEN, GPIO.OUT)
         GPIO.output(GREEN, GPIO.LOW)
 
 
-    # metodo un lampeggi verde. Uno solo se non e' andata a buon fine, tre se e' andata a buon fine.
+    # green led blinking
     def green_lamp(self, val):
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)  # disabilita' warning
+        GPIO.setwarnings(False)  # warning off
         GPIO.setup(GREEN, GPIO.OUT)
 
-        if val == True:
+        if val == True: # if val = True, three blibk
             GPIO.output(GREEN, GPIO.LOW)
             time.sleep(0.5)
             GPIO.output(GREEN, GPIO.HIGH)
@@ -45,7 +47,7 @@ class Led():
             GPIO.output(GREEN, GPIO.LOW)
             time.sleep(0.5)
             GPIO.output(GREEN, GPIO.HIGH)
-        else:
+        else:           # if val = False, one blink
             GPIO.output(GREEN, GPIO.LOW)
             time.sleep(3)
             GPIO.output(GREEN, GPIO.HIGH)
@@ -53,21 +55,21 @@ class Led():
 
 
 
-    # metodo per l'accensione e lo spegnimento del led rosso
+    # red led on
     def red_on(self):
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)  # disabilita' warning
+        GPIO.setwarnings(False)  # warning off
         GPIO.setup(RED, GPIO.OUT)
         GPIO.output(RED, GPIO.HIGH)
 
 
 
-    # metodo spegnimento led verde
+    # red led off
     def red_off(self):
 
         GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)  # disabilita' warning
+        GPIO.setwarnings(False)  # warning off
         GPIO.setup(RED, GPIO.OUT)
         GPIO.output(RED, GPIO.LOW)
 

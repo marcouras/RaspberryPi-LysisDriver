@@ -1,5 +1,9 @@
+__author__ = "Claudio Marche"
+
 from dataHandler.led import Led
 from dataHandler.lirc import Lirc
+
+# set command in actuators
 
 def setActuator(actuator, command):
 

@@ -1,7 +1,10 @@
+__author__ = "Claudio Marche"
+
 from threading import Thread
 import time
 from data_sensor import sendSensorData
 
+# Thread for scheduling
 
 class ThreadRasp(Thread):
 

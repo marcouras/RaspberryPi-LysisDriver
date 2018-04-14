@@ -1,14 +1,20 @@
+__author__ = "Claudio Marche"
+
 from HTTP.req import req
 from Lib.xml.dom.minidom import getDOMImplementation
 # "xml.dom.minidom" implementazione minima dell'interfaccia Document Object Model
 # con una API simile a quella in altri linguaggi
 from Lib.xml.dom.minidom import parseString
 
+# smartplug
+
+host = "192.168.1.1"
+auth = ('admin', '1234')
 
 class SmartPlug(object):
 
 
-    def __init__(self, host, auth):
+    def __init__(self):
         # crea una nuova istanza SmartPlug
         self.url = "http://%s:10000/smartplug.cgi" % host
         self.auth = auth
