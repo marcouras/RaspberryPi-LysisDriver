@@ -18,7 +18,7 @@ def createClient(Clientname, url_broker):
 # Connessione device al Server
 def on_connect(Clientname, userdata, flags, rc):
     print 'connected with result code ' + str(rc) + "\n"
-    topic = read_file("configuration/app_engine_id.dat")
+    topic = read_file("../configuration/app_engine_id.dat")
     Clientname.subscribe(topic)  # Topic del progetto
 
 # Ricezione messaggio dal server

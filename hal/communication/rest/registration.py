@@ -26,7 +26,7 @@ class Registration(object):
     """
 
     def __init__(self):
-        self.id_app_engine = read_file("configuration/app_engine_id.dat")
+        self.id_app_engine = read_file("../configuration/app_engine_id.dat")
 
     def sendConfig(self):
         """
