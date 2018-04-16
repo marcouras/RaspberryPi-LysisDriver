@@ -1,10 +1,10 @@
 __author__ = "Claudio Marche"
 
-from HTTP.req import req
-from Lib.xml.dom.minidom import getDOMImplementation
+import requests
+from xml.dom.minidom import getDOMImplementation
 # "xml.dom.minidom" implementazione minima dell'interfaccia Document Object Model
 # con una API simile a quella in altri linguaggi
-from Lib.xml.dom.minidom import parseString
+from xml.dom.minidom import parseString
 
 # smartplug
 
@@ -69,10 +69,8 @@ class SmartPlug(object):
     def _post_xml(self, xml, code):
         # post comando xml
         files = {'file': xml}
-        # creo un'istanza req
-        call = req(self.url, None, self.auth, files)
         # uso il metodo post
-        res = call.post()
+        res = requests.post(self.url, auth=self.auth, files=files)
         # se code vale 1, stiamo usando il metodo state, percio' non abbiamo bisogno di un valore di ritorno
         if (code):
             return None

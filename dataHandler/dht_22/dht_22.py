@@ -2,6 +2,8 @@ __author__ = "Claudio Marche"
 
 import Adafruit_DHT as dht
 
+# install library from "https://github.com/adafruit/Adafruit_Python_DHT"
+
 # classe per il sensore DHT22
 
 # h: humidity

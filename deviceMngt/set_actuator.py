@@ -1,7 +1,7 @@
 __author__ = "Claudio Marche"
 
-from dataHandler.led import Led
-from dataHandler.lirc import Lirc
+from dataHandler.led.led import Led
+from dataHandler.lirc.lirc import Lirc
 
 # set command in actuators
 
