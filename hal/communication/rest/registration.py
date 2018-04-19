@@ -11,10 +11,10 @@ import requests
 from pprint import pprint
 
 
-def createKey(length=10):
+def createKey(path, length=10):
     key = ''.join(random.choice(string.lowercase) for i in range(length))
 
-    write_file(filename='reg.dat', string=key)
+    write_file(filename=path + '/reg.dat', string=key)
     return key
 
 
@@ -43,9 +43,9 @@ class Registration(object):
             pprint(conf)
 
         if not (os.path.isfile('reg.dat')):
-            key = createKey(10)
+            key = createKey(10, path)
         else:
-            f = open(path + 'reg.dat', 'r')
+            f = open(path + '/reg.dat', 'r')
             key = f.readline()
             print key
 
