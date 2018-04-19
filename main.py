@@ -20,4 +20,8 @@ if not (os.path.isfile('reg.dat')):
         client = createClient("Raspberry", url_broker)
     else:
         print "Something went wrong..."
+else:
+    # avvio del client MQTT per il subscribe nel topic <app_engine_id>
+    url_broker = 'tools.lysis-iot.com'
+    client = createClient("Raspberry", url_broker)
 
