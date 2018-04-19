@@ -3,14 +3,14 @@
 
 from hal.communication.device.mqttManager import *
 from hal.communication.rest.registration import Registration
-from util.file_manager import createKey
+from util.file_manager import createKey, project_path
 import os
 
 
 # check registration
 if not (os.path.isfile('reg.dat')):
     key = createKey(10)
-    f = open('/reg.dat', 'r')
+    f = open(project_path() + '/reg.dat', 'r')
     key = f.readline()
     st = Registration().sendConfig(key)
     if st == 200:
