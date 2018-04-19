@@ -1,38 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-ISTRUZIONI:
-
-1. Indicare sensori e attuatori nel file config.json in configuration
-2. Indicare ID App Engine nel file app_ening_id.dat in configuration
-3. Nel caso, indicare sensori collegati all'adc, nel file sensChannel.json in configuration
-
-4. Eseguire la prima volta la registrazione come indicato qui sotto:
-
-
-
-from hal.communication.rest.registration import Registration
-
-registr = Registration()
-registr.sendConfig()
-
-
-5. Una volta creato il file reg.dat, eseguire il file main di seguito illustrato
-
-6. Inserire, se non già inserito, il file main nel file relativo all'esecuzione all'avvio del Raspberry
-
-"""
-
 from hal.communication.device.mqttManager import *
 from hal.communication.rest.registration import Registration
-from util.file_manager import createKey, project_path
+from util.file_manager import createKey
 import os
 
 
+# check registration
 if not (os.path.isfile('reg.dat')):
     key = createKey(10)
-    f = open(project_path() + '/reg.dat', 'r')
+    f = open('/reg.dat', 'r')
     key = f.readline()
     st = Registration().sendConfig(key)
     if st == 200:
