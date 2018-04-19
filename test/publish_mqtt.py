@@ -6,7 +6,7 @@ from util.file_manager import read_file
 # tramite una chiamata post ad un noto server preconfigurato,
 # il VO esegue un publish nel topic equivalente all'ID app engine
 
-mqtt_bridge_url = 'http://tools.lysis-iot.com/MqttPublish/publish.php'
+mqtt_bridge_url = 'tools.lysis-iot.com'
 topic = read_file("../configuration/app_engine_id.dat")
 
 message = "GET_TEMPERATURE"

@@ -29,7 +29,7 @@ def sendData(sensor_name, sensor_value):
                }
 
     param = urllib.urlencode(payload)
-    url = "http://" + read_file("../configuration/app_engine_id.dat") + ".appspot.com/sendData"
+    url = "http://" + read_file("../../../configuration/app_engine_id.dat") + ".appspot.com/sendData"
 
     headers = {
         'content-type': "application/x-www-form-urlencoded",
