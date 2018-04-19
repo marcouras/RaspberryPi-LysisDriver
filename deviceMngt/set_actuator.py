@@ -11,7 +11,7 @@ def setActuator(actuator, command):
         led = Led()
         if command == "GREEN-ON":
             led.red_off()
-            led.green_lamp()
+            led.green_lamp(True)
             led.green_on()
         elif command == "RED-ON":
             led.green_off()
