@@ -5,6 +5,7 @@ import urllib
 import requests
 import time
 from util.file_manager import read_file
+import os
 
 
 def sendData(sensor_name, sensor_value):
@@ -12,9 +13,11 @@ def sendData(sensor_name, sensor_value):
     Invio dei dati provenienti dai sensori al SVO
 
     """
+    # path
+    path = os.getcwd()
 
     try:
-        f = open('reg.dat', 'r')
+        f = open(path + 'reg.dat', 'r')
         key = f.readline()
 
     except IOError:
