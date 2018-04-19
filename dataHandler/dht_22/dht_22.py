@@ -1,8 +1,15 @@
 __author__ = "Claudio Marche"
 
-import Adafruit_DHT as dht
+import os
+import pkgutil
 
-# install library from "https://github.com/adafruit/Adafruit_Python_DHT"
+# try to install DHT22 library
+try:
+    pkgutil.find_loader('Adafruit_DHT')
+    import Adafruit_DHT as dht
+except ImportError:
+    os.system('sh install.sh')
+
 
 # classe per il sensore DHT22
 
