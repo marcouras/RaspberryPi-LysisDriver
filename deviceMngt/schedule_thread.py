@@ -17,9 +17,8 @@ class ThreadRasp(Thread):
     def run(self):
         while True:
             if self.val != 0:
-                print("Senda data\n")
                 sendSensorData(self.sensor)
-                print('%s sleeping fo %d seconds...' % (self.getName(), self.val))
+                print('%s data sent, next sample will be send in %d seconds...' % (self.getName(), self.val))
                 time.sleep(self.val)
             else:
                 break
