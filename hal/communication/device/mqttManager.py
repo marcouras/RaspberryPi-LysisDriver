@@ -27,7 +27,7 @@ def on_message(client, userdata, msg):
 
     # esempio payload
     # GET_TEMPERATURE
-    payload = msg.payload.spli('_')
+    payload = msg.payload.split('_')
 
     if payload[0] == "GET":
         sendSensorData(payload[1])
