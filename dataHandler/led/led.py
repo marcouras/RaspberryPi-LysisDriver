@@ -4,7 +4,7 @@ import time
 __author__ = "Claudio Marche"
 
 # GPIO
-GREEN = 5
+GREEN = 12
 RED = 6
 
 
