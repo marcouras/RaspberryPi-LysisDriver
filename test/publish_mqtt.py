@@ -7,7 +7,7 @@ from util.file_manager import read_file
 # il VO esegue un publish nel topic equivalente all'ID app engine
 
 mqtt_bridge_url = 'tools.lysis-iot.com'
-topic = read_file("../configuration/app_engine_id.dat")
+topic = read_file("configuration/app_engine_id.dat")
 
 message = "GET_TEMPERATURE"
 
