@@ -26,7 +26,7 @@ class Registration(object):
     """
 
     def __init__(self):
-        self.id_app_engine = read_file("configuration/app_engine_id.dat")
+        self.id_app_engine = read_file("/configuration/app_engine_id.dat")
 
     def sendConfig(self):
         """
@@ -35,7 +35,12 @@ class Registration(object):
         :return:
         """
 
-        with open('../configuration/config.json') as data_file:
+        # path
+        path = os.getcwd()
+        # remove directory from path
+        path.replace('hal/communication/rest', '')
+
+        with open(path + '/configuration/config.json') as data_file:
             conf = json.load(data_file)
 
             pprint(conf)
