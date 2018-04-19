@@ -38,9 +38,9 @@ def on_message(client, userdata, msg):
     elif payload[0] == "SCHEDULE":
         if payload[2] != 0:    # se l'intervallo e' diverso da zero
             global thread
-            thread = ThreadRasp(payload[1], payload[2])
+            thread = ThreadRasp(payload[1], int(payload[2]))
             thread.start()
-        elif payload[2] == 0:  # stop schedule
+        elif int(payload[2]) == 0:  # stop schedule
             thread.val = 0
 
 
