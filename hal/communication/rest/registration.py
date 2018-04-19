@@ -2,7 +2,6 @@ __author__ = "Marco Uras"
 
 # -*- coding: utf-8 -*-
 import simplejson as json
-import os
 import urllib
 
 from util.file_manager import *
@@ -26,7 +25,7 @@ class Registration(object):
     """
 
     def __init__(self):
-        self.id_app_engine = read_file("/configuration/app_engine_id.dat")
+        self.id_app_engine = read_file(project_path() + "/configuration/app_engine_id.dat")
 
     def sendConfig(self):
         """
@@ -36,9 +35,7 @@ class Registration(object):
         """
 
         # path
-        path = os.getcwd()
-        # remove directory from path
-        path.replace('hal/communication/rest', '')
+        path = project_path()
 
         with open(path + '/configuration/config.json') as data_file:
             conf = json.load(data_file)
@@ -48,7 +45,7 @@ class Registration(object):
         if not (os.path.isfile('reg.dat')):
             key = createKey(10)
         else:
-            f = open('reg.dat', 'r')
+            f = open(path + 'reg.dat', 'r')
             key = f.readline()
             print key
 

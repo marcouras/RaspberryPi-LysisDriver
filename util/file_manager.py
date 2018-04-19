@@ -1,5 +1,14 @@
 import os
 
+
+def project_path():
+    # path
+    path = os.getcwd()
+    # remove util from path
+    path.replace('util', '')
+    return path
+
+
 def write_file(filename, string):
     """
     :param filename: percorso del file che si vuole aprire
@@ -8,12 +17,9 @@ def write_file(filename, string):
     Nota: se il file non esiste viene creato, se invece esiste viene sovrascritto. Allo stato attuale non viene
     fatto nessun controllo sull'esistenza del file.
     """
-    # path
-    path = os.getcwd()
-    # remove util from path
-    path.replace('util', '')
+
     # completely filename
-    filename = path + filename
+    filename = project_path() + filename
     myfile = open(filename, mode='w+')
     myfile.write(string)
     myfile.close()
@@ -25,15 +31,13 @@ def read_file(filename):
     :return: la prima riga del file in ingresso
     """
     try:
-        # path
-        path = os.getcwd()
-        # remove util from path
-        path.replace('util','')
         # completely filename
-        filename = path + filename
+        filename = project_path() + filename
         myfile = open(filename, mode='r')
         firstline = myfile.readline()
         myfile.close()
         return firstline
     except IOError:
         print (filename + " file not found")
+
+
