@@ -17,7 +17,7 @@ def sendData(sensor_name, sensor_value):
     path = os.getcwd()
 
     try:
-        f = open(path + 'reg.dat', 'r')
+        f = open(path + '/reg.dat', 'r')
         key = f.readline()
 
     except IOError:
