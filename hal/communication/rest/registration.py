@@ -5,17 +5,10 @@ import simplejson as json
 import urllib
 
 from util.file_manager import *
-import random, string
 import requests
 
 from pprint import pprint
 
-
-def createKey(path, length=10):
-    key = ''.join(random.choice(string.lowercase) for i in range(length))
-
-    write_file(filename=path + '/reg.dat', string=key)
-    return key
 
 
 class Registration(object):
@@ -27,7 +20,7 @@ class Registration(object):
     def __init__(self):
         self.id_app_engine = read_file(project_path() + "/configuration/app_engine_id.dat")
 
-    def sendConfig(self):
+    def sendConfig(self, key):
         """
         risorsa da contattare
         http://svotest-002n.appspot.com/register?device
@@ -39,15 +32,8 @@ class Registration(object):
 
         with open(path + '/configuration/config.json') as data_file:
             conf = json.load(data_file)
-
             pprint(conf)
 
-        if not (os.path.isfile('reg.dat')):
-            key = createKey(10, path)
-        else:
-            f = open(path + '/reg.dat', 'r')
-            key = f.readline()
-            print key
 
 
         param = {'brand': 'raspberryPi',

@@ -25,6 +25,21 @@ registr.sendConfig()
 """
 
 from hal.communication.device.mqttManager import *
+from hal.communication.rest.registration import Registration
+from util.file_manager import createKey, project_path
+import os
+
+
+if not (os.path.isfile('reg.dat')):
+    key = createKey(10)
+    f = open(project_path() + '/reg.dat', 'r')
+    key = f.readline()
+    st = Registration().sendConfig(key)
+    if st == 200:
+        print "Registration success!"
+    else:
+        print "Something went wrong..."
+
 
 # avvio del client MQTT per il subscribe nel topic <app_engine_id>
 url_broker = 'tools.lysis-iot.com'
