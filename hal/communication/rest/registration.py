@@ -35,7 +35,6 @@ class Registration(object):
             pprint(conf)
 
 
-
         param = {'brand': 'raspberryPi',
                  'model': '3',
                  'url': self.id_app_engine,
@@ -50,9 +49,13 @@ class Registration(object):
             'cache-control': "no-cache"
         }
 
+        url = "http://" + self.id_app_engine + ".appspot.com/register?device"
+        print url
+
         r = requests.request("POST",
-                             url="http://" + self.id_app_engine + ".appspot.com/register?device",
+                             url=url,
                              data=payload,
                              headers=headers_list)
         # print r.text
         print r.status_code
+        return r.status_code
