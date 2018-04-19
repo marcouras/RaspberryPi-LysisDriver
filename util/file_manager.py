@@ -5,7 +5,7 @@ import random, string
 def createKey(length=10):
     key = ''.join(random.choice(string.lowercase) for i in range(length))
 
-    write_file(filename=project_path() + '/reg.dat', string=key)
+    write_file(filename='/reg.dat', string=key)
     return key
 
 
