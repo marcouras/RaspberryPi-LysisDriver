@@ -1,7 +1,6 @@
 __author__ = "Marco Uras"
 
 import serial, time
-import numpy as np
 import json
 
 # Import SPI library (for hardware SPI) and MCP3008 library.
@@ -42,13 +41,18 @@ def get_channel(sensorName):
     return sens_channels.get(sensorName)
 
 
+def mean(param):
+    v = 0
+    v += [p for p in param]
+    return v/len(param)
+
+
 def read_sens(sensorName):
 
     matrix_values = read_adc()
-
     print sensorName
     ch = get_channel(sensorName)
     print ch
-    mean = np.mean(matrix_values[ch-1])
+    mean_v = mean(matrix_values[ch-1])
 
-    return mean
+    return mean_v
