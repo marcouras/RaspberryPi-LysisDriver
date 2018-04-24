@@ -6,7 +6,8 @@ from hal.communication.rest.sendData import sendData
 from dataHandler.adc.read_values import *
 from dataHandler.gps.lat_lon import *
 
-# classe utilizzata per la lettura dei dati dai sensori, inviati tramite comunicazione rest descritta nel
+# classe utilizzata per la lettura dei dati dai sensori,
+#  inviati tramite comunicazione rest descritta nel
 # package communication
 
 

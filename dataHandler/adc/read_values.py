@@ -1,13 +1,16 @@
 __author__ = "Marco Uras"
 
 import serial, time
+import numpy as np
 import json
 
 # Import SPI library (for hardware SPI) and MCP3008 library.
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
 
-
+"""
+Attenzione questa funzione richiede la libreria numpy
+"""
 def read_adc():
     # Software SPI configuration:
     CLK  = 18
@@ -53,6 +56,6 @@ def read_sens(sensorName):
     print sensorName
     ch = get_channel(sensorName)
     print ch
-    mean_v = mean(matrix_values[ch-1])
+    mean = np.mean(matrix_values[ch-1])
 
-    return mean_v
+    return mean

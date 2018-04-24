@@ -3,6 +3,7 @@
 
 from hal.communication.device.mqttManager import *
 from hal.communication.rest.registration import Registration
+from hal.communication.rest.sendData import sendData
 from util.file_manager import createKey, project_path
 import os
 
@@ -24,4 +25,7 @@ else:
     # avvio del client MQTT per il subscribe nel topic <app_engine_id>
     url_broker = 'tools.lysis-iot.com'
     client = createClient("Raspberry", url_broker)
+    sen_name = 'TEMPERATURE'
+    v = 10
+    sendData(sensor_name=sen_name,sensor_value=v)
 
