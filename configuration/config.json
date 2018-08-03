@@ -1,0 +1,7 @@
+[{"feature":"sensor",   "type":"number",  "name":"TEMPERATURE", "permission":"public",  "schedulable":true},
+  {"feature":"sensor",  "type":"number",  "name":"HUMIDITY",    "permission":"public",  "schedulable":true},
+  {"feature":"sensor",  "type":"number",  "name":"POWER",       "permission":"public",  "schedulable":true},
+  {"feature":"sensor",  "type":"number",  "name":"CURRENT",     "permission":"public",  "schedulable":true},
+  {"feature":"actuator","type":"number",  "name":"LED",         "permission":"public",  "schedulable":false},
+  {"feature":"actuator","type":"number",  "name":"IR",          "permission":"public",  "schedulable":false},
+  {"feature":"sensor",  "type":"number",  "name":"BLUETOOTH",   "permission":"public",  "schedulable":true}]
