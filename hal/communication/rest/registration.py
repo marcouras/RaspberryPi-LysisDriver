@@ -1,3 +1,5 @@
+import time
+
 __author__ = "Marco Uras"
 
 # -*- coding: utf-8 -*-
@@ -51,6 +53,8 @@ class Registration(object):
             'content-type': "application/x-www-form-urlencoded",
             'cache-control': "no-cache"
         }
+
+        time.sleep(0.01)
 
         r = requests.request("POST",
                              url=url,
