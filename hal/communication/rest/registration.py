@@ -56,10 +56,9 @@ class Registration(object):
 
         time.sleep(0.01)
 
-        r = requests.request("POST",
-                             url=url,
-                             data=payload,
-                             headers=headers_list)
         # print r.text
+        r = requests.post(url=url,
+                          data=payload,
+                          headers=headers_list)
         print r.status_code
         return r.status_code
