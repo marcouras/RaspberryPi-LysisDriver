@@ -46,7 +46,7 @@ class Registration(object):
         payload = urllib.urlencode(param)
         print payload
 
-        url = "http://" + self.id_app_engine + ".appspot.com/register?device"
+        url = "https://" + self.id_app_engine + ".appspot.com/register?device"
         print url
 
         headers_list = {
